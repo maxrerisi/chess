@@ -7,15 +7,18 @@ board = chess.Board()
 
 
 # Function to generate all valid moves for the current position
+overall = {}
 def generate_moves(board, depth):
     if depth == 0:
         return [board.fen()]  # Use FEN to represent the board state
 
     moves = []
     for move in board.legal_moves:
+        if move
         board.push(move)
         moves.extend(generate_moves(board, depth - 1))
         board.pop()
+    overall[[board, depth]] = moves
     return moves
 
 
