@@ -14,11 +14,12 @@ def generate_moves(board, depth):
 
     moves = []
     for move in board.legal_moves:
-        if move
         board.push(move)
+        if (board, depth-1) in overall:
+            return overall[[board, depth-1]]
         moves.extend(generate_moves(board, depth - 1))
         board.pop()
-    overall[[board, depth]] = moves
+    overall[(board, depth)] = moves
     return moves
 
 
